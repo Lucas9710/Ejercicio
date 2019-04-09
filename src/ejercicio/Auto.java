@@ -1,11 +1,12 @@
 
 package ejercicio;
 
-import java.text.DecimalFormat;
 
 
-public class Auto {
-    
+
+public class Auto implements Comparable<Auto> {
+
+ 
     String nombre;
     String modelo;
     double precio;
@@ -31,4 +32,13 @@ public class Auto {
         String agregarString  = "$" + String.format("%.0f", precio)  ;
         return agregarString;
     }
+
+    public int compareTo(Auto auto) {
+        return Double.compare(this.precio, auto.precio);
+    }
+        
+    
+   
+
+   
  }
