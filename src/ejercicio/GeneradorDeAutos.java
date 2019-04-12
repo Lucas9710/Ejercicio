@@ -11,10 +11,10 @@ public class GeneradorDeAutos  {
 
        public void generadorAutos() {
 
-        Puertas auto1 = new Puertas("Peugeot", "206", 20000000, 4);
-        Cilindrada auto2 = new Cilindrada("Honda", "Titan", 6000000, 125);
-        Puertas auto3 = new Puertas("Peugeot", "208", 25000000, 5);
-        Cilindrada auto4 = new Cilindrada("Yamaha", "YBR", 8050050, 160);
+        Puertas auto1 = new Puertas("Peugeot", "206", 200000, 4);
+        Cilindrada auto2 = new Cilindrada("Honda", "Titan", 60000, 125);
+        Puertas auto3 = new Puertas("Peugeot", "208", 250000, 5);
+        Cilindrada auto4 = new Cilindrada("Yamaha", "YBR", 80500.50, 160);
 
         ArrayList<Auto> list = new ArrayList<Auto>();
 
@@ -42,7 +42,20 @@ public class GeneradorDeAutos  {
         Auto segundoAuto = autoList.get(autoList.size()-2);
         Auto tercerAuto = autoList.get(autoList.size()-3);
         
-        String comparatorDescription = "Producto más caro: " + ultimoAuto.nombre + " " +ultimoAuto.modelo +"\n" + "Producto más barato: " + primerAuto.nombre + " " +primerAuto.modelo + "\n" + "Vehículo que contiene en el modelo la letra ‘Y’: " + "\n" +"=============================\n" +
+        Auto autoConLetra = null;
+        for (Auto auto : autoList) {
+            if (auto.modelo.contains("Y")) {
+                autoConLetra = auto;
+            }   
+        }
+
+            
+        
+        String comparatorDescription = "Producto más caro: " + ultimoAuto.nombre + " " +ultimoAuto.modelo +"\n" + 
+                "Producto más barato: " + primerAuto.nombre + " " +primerAuto.modelo + "\n" + 
+                "Vehículo que contiene en el modelo la letra ‘Y’: " + autoConLetra.nombre + " " 
+                + autoConLetra.modelo + " " + autoConLetra.precioFormatted() + 
+                "\n" +"=============================\n" +
                "Vehículos ordenados por precio de mayor a menor: " + "\n" + ultimoAuto.nombre + " " +ultimoAuto.modelo +"\n" + segundoAuto.nombre + " " + segundoAuto.modelo  
                 + "\n" + tercerAuto.nombre + " " + tercerAuto.modelo + "\n" + primerAuto.nombre + " " + primerAuto.modelo ;
 
